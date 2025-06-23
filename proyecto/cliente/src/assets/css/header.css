@@ -16,46 +16,32 @@ body {
 }
 
 /* ===== NAVBAR PRINCIPAL ===== */
-.navbar {
-  border-radius: 8px;
-  margin-block-end: -40px;
-}
-
 .header-nav {
   background-color: #022583;
   display: flex;
-  padding-inline: 1.5em;
-  padding-block: 1em;
+  padding: 1em 1.5em;
   align-items: center;
   justify-content: space-between;
   font-weight: 600;
 }
 
-.bottom-nav {
-  background-color: #3664e3;
-  display: flex;
-  padding-inline: 1.5em;
-  padding-block: 1em;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: 600;
-}
-
-/* ===== NAV ITEMS ===== */
-.nav-link {
-  color: white;
-  background: none;
+/* ===== NAV BUTTONS ===== */
+.nav-button {
+  background-color: transparent;
   border: none;
-  margin-left: 20px;
-  font-size: 20px;
+  color: white;
+  font-size: 1em;
   cursor: pointer;
-  text-decoration: none;
   font-weight: 500;
   font-family: Tahoma;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-left: 10px; /* Añadido para separar los botones */
 }
 
-.nav-link:hover {
-  text-decoration: underline;
+.nav-button:hover {
+  background-color: #3664e3;
 }
 
 /* ===== LOGO ===== */
@@ -71,6 +57,32 @@ body {
   margin-right: 15px;
 }
 
+.logo-text {
+  font-weight: bold;
+}
+
+/* ===== IMAGEN Y TITULO ===== */
+.image-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2em;
+}
+
+.centered-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.welcome-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #022583;
+}
+
 /* ===== MODO OSCURO ===== */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -78,15 +90,15 @@ body {
     background-color: #4b4b4b;
   }
 
-  .bottom-nav {
+  .header-nav {
+    background-color: #022583;
+  }
+
+  .nav-button {
+    color: #ffffff;
+  }
+
+  .nav-button:hover {
     background-color: #3664e3;
-  }
-
-  .nav-link {
-    color: #ffffff;
-  }
-
-  .nav-link:hover {
-    color: #ffffff;
   }
 }
