@@ -13,92 +13,217 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
-/* ===== NAVBAR PRINCIPAL ===== */
-.header-nav {
-  background-color: #022583;
+/* ===== HEADER PRINCIPAL ===== */
+.main-header {
+  background-color: #042b86;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ===== SECCIÓN SUPERIOR ===== */
+.header-top {
+  background-color: #167ac6;
   display: flex;
-  padding: 1em 1.5em;
   align-items: center;
   justify-content: space-between;
-  font-weight: 600;
-}
-
-/* ===== NAV BUTTONS ===== */
-.nav-button {
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 1em;
-  cursor: pointer;
-  font-weight: 500;
-  font-family: Tahoma;
-  padding: 0.5em 1em;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  margin-left: 10px; /* Añadido para separar los botones */
-}
-
-.nav-button:hover {
-  background-color: #3664e3;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 /* ===== LOGO ===== */
 .logo {
   display: flex;
   align-items: center;
-  color: white;
-  font-family: Tahoma;
+  cursor: pointer;
+  color: #4a90e2;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
 }
 
 .logo img {
-  height: 45px;
-  margin-right: 15px;
+  height: 40px;
+  margin-right: 12px;
 }
 
 .logo-text {
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4a90e2;
 }
 
-/* ===== IMAGEN Y TITULO ===== */
+/* ===== CONTROLES DE USUARIO ===== */
+.user-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-btn {
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.user-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #999;
+}
+
+.user-btn.logout {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.user-btn.logout:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* ===== NAVEGACIÓN PRINCIPAL ===== */
+.main-nav {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  display: flex;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== PESTAÑAS DE NAVEGACIÓN ===== */
+.nav-tab {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  white-space: nowrap;
+  position: relative;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-tab:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.nav-tab.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-tab:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: -2px;
+}
+
+/* ===== CONTENEDOR DE IMAGEN Y TÍTULO ===== */
 .image-title-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2em;
+  padding: 2rem;
 }
 
 .centered-image {
   max-width: 100%;
   height: auto;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .welcome-title {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
-  color: #022583;
+  color: #4a90e2;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .header-top {
+    padding: 0.8rem 1rem;
+  }
+  
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  
+  .nav-tab {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .user-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-top {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .nav-tab {
+    padding: 0.8rem 1rem;
+  }
 }
 
 /* ===== MODO OSCURO ===== */
 @media (prefers-color-scheme: dark) {
   :root {
     color: #ffffff;
-    background-color: #4b4b4b;
+    background-color: #1a1a1a;
   }
-
-  .header-nav {
-    background-color: #022583;
+  
+  .main-header {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
-
-  .nav-button {
-    color: #ffffff;
+  
+  .header-top {
+    background-color: #2d2d2d;
+    border-bottom-color: #404040;
   }
-
-  .nav-button:hover {
-    background-color: #3664e3;
+  
+  .logo-text {
+    color: #4a90e2;
+  }
+  
+  .user-btn {
+    color: #ccc;
+    border-color: #555;
+    background-color: transparent;
+  }
+  
+  .user-btn:hover {
+    background-color: #404040;
+    border-color: #777;
   }
 }

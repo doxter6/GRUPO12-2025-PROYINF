@@ -2,57 +2,62 @@ import { useNavigate } from "react-router-dom";
 
 import logo from "../assets/img/logo150.webp";
 
+import "../assets/css/header.css"
+
 export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <header>
-      <div>
-        <section className="header-nav">
-          <div className="logo" onClick={() => navigate("/")}>
-            <img src={logo} alt="Logo" />
-            <span className="logo-text">EduPAES</span>
-          </div>
-          <div className="user-controls">
-            <button className="nav-button" onClick={() => navigate("/user")}>
-              Usuario
-            </button>
-            <button className="nav-button" onClick={() => navigate("/logout")}>
-              Cerrar sesión
-            </button>
-          </div>
-        </section>
-      </div>
-
-      <nav className="navbar">
-        <div className="bottom-nav">
-          <div className="menu-items">
-            <button
-              onClick={() => navigate("/bancopreguntas")}
-              className="nav-button"
-            >
-              Banco de Preguntas
-            </button>
-            <button
-              onClick={() => navigate("/creadorpreguntas")}
-              className="nav-button"
-            >
-              Creador de Preguntas
-            </button>
-            <button
-              onClick={() => navigate("/ResultadosEst")}
-              className="nav-button"
-            >
-              Tu Progreso
-            </button>
-            <button
-              onClick={() => navigate("/ensayo/1")} // Asumiendo que el primer ensayo tiene el ID 1
-              className="nav-button"
-            >
-              Ensayo
-            </button>
-          </div>
+    <header className="main-header">
+      {/* Sección superior con logo y controles de usuario */}
+      <section className="header-top">
+        <div className="logo" onClick={() => navigate("/")}>
+          <img src={logo} alt="Logo" />
+          <span className="logo-text">EduPAES</span>
         </div>
+        
+        <div className="user-controls">
+          <button className="user-btn" onClick={() => navigate("/user")}>
+            Usuario
+          </button>
+          <button className="user-btn logout" onClick={() => navigate("/logout")}>
+            Cerrar sesión
+          </button>
+        </div>
+      </section>
+
+      {/* Navegación principal con pestañas */}
+      <nav className="main-nav">
+        <button
+          onClick={() => navigate("/")}
+          className="nav-tab active"
+        >
+          Inicio
+        </button>
+        <button
+          onClick={() => navigate("/bancopreguntas")}
+          className="nav-tab"
+        >
+          Banco de Preguntas
+        </button>
+        <button
+          onClick={() => navigate("/creadorpreguntas")}
+          className="nav-tab"
+        >
+          Creador de Preguntas
+        </button>
+        <button
+          onClick={() => navigate("/ResultadosEst")}
+          className="nav-tab"
+        >
+          Tu Progreso
+        </button>
+        <button
+          onClick={() => navigate("/ensayo/1")}
+          className="nav-tab"
+        >
+          Ensayo
+        </button>
       </nav>
     </header>
   );
