@@ -11,8 +11,7 @@ APP_PORT_HOST ?= 5173
 export DB_USER DB_PASSWORD DB_PORT_HOST DB_PORT_CONTAINER BACKEND_PORT_HOST APP_PORT_HOST
 
 # Variables dinámicas
-BRANCH = $(shell git rev-parse --abbrev-ref HEAD | sed 's|/|-|g')
-CONTAINER_NAME = proyecto-app-$(BRANCH)
+CONTAINER_NAME = proyecto-app
 
 # Dependencias
 BACKEND_DEPS = express cors pg sequelize dotenv axios
