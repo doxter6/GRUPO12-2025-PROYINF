@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import logo from "../assets/img/logo150.webp";
 
@@ -6,6 +6,14 @@ import "../assets/css/header.css"
 
 export default function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActiveRoute = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <header className="main-header">
@@ -30,31 +38,31 @@ export default function Header() {
       <nav className="main-nav">
         <button
           onClick={() => navigate("/")}
-          className="nav-tab active"
+          className={`nav-tab ${isActiveRoute("/") ? "active" : ""}`}
         >
           Inicio
         </button>
         <button
           onClick={() => navigate("/bancopreguntas")}
-          className="nav-tab"
+          className={`nav-tab ${isActiveRoute("/bancopreguntas") ? "active" : ""}`}
         >
           Banco de Preguntas
         </button>
         <button
           onClick={() => navigate("/creadorpreguntas")}
-          className="nav-tab"
+          className={`nav-tab ${isActiveRoute("/creadorpreguntas") ? "active" : ""}`}
         >
           Creador de Preguntas
         </button>
         <button
           onClick={() => navigate("/ResultadosEst")}
-          className="nav-tab"
+          className={`nav-tab ${isActiveRoute("/ResultadosEst") ? "active" : ""}`}
         >
           Tu Progreso
         </button>
         <button
           onClick={() => navigate("/ensayo/1")}
-          className="nav-tab"
+          className={`nav-tab ${isActiveRoute("/ensayo/1") ? "active" : ""}`}
         >
           Ensayo
         </button>
